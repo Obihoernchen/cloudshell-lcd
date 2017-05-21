@@ -158,28 +158,28 @@ while true; do
 	chvt $OUTPUT_CONSOLE
 
 	# check if EXT_IP_REFRESH
-	if (( (ext_ip_refresh_c % EXT_IP_REFRESH) == 0 )); then
-		get_external_ip
-	fi
+	#if (( (ext_ip_refresh_c % EXT_IP_REFRESH) == 0 )); then
+	#	get_external_ip
+	#fi
 	
 	# increment $ext_ip_refresh_c
-	ext_ip_refresh_c=$((ext_ip_refresh_c+1))
+	#ext_ip_refresh_c=$((ext_ip_refresh_c+1))
 
 	# get data
 	get_internal_ip
 	get_hostname
 	get_disk_mount_info
 	get_disk_info
-	get_disk_temperature
+	#get_disk_temperature
 	get_full_date
-	#get_net_tx_rx_realtime
-	#get_memory_info
+	get_net_tx_rx_realtime
+	get_memory_info
 	get_system_info
 	get_cpu_usage
 	get_cpu_temperature
 	#get_samba_connections
 	#get_nfs_connections
-	get_process_count
+	#get_process_count
 
 	# clear the screen every loop
 	# we only wipe the screen when we are ready to write data to it
@@ -193,12 +193,12 @@ while true; do
 	# line CPU Usage
 	echo -e "CPU Usage: $CBLUE$CPU_USAGE%$COFF  CPU Temp: $CRED$CPU_TEMP$COFF" > $oc
 	# Line Memory
-	#echo -e "Memory Free: $CBLUE$MEM_FREE MB$COFF   Used: $CBLUE$MEM_USED MB$COFF" > $oc
+	echo -e "Memory Free: $CBLUE$MEM_FREE MB$COFF   Used: $CBLUE$MEM_USED MB$COFF" > $oc
 	# Line IP Addresses
 	#echo -e "IP: $CBLUE$INTERNAL_IP$COFF Ext IP: $CBLUE$EXTERNAL_IP$COFF" > $oc
 	echo -e "IP: $CBLUE$INTERNAL_IP$COFF" > $oc
 	# Line network usage
-	#echo -e "TX: $CBLUE$NET_TX MB/s$COFF RX: $CBLUE$NET_RX MB/s$COFF" > $oc
+	echo -e "TX: $CBLUE$NET_TX MB/s$COFF RX: $CBLUE$NET_RX MB/s$COFF" > $oc
 	# Line Disk Space
 
 	
